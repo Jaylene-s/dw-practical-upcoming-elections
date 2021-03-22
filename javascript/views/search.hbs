@@ -1,0 +1,9 @@
+<div class = "container">
+  <h1>Here is your nearest election:</h1>
+  {{#each results}}
+    <p>Election: {{description }}</p>
+    <p>Date: {{date }}</p>  
+    <p>Election Type: {{type }}</p>  
+    <p>Visit this website to find out more: <a href="{{url }}">{{url }}</a></p>  
+  {{/each}} 
+</div>
