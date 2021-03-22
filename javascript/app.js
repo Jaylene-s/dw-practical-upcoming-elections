@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 
 var app = express();
+const port = process.env.PORT || 5000;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,6 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/search', indexRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -35,5 +37,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+app.listen(port, () => console.log(`Server listening on port ${port}`));
 
 module.exports = app;
